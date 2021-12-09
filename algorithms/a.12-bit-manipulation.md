@@ -6,7 +6,11 @@ Bit manipulation is commonly taught in core computer science courses to help stu
 
 Please read about the 6 main bitwise operators `&`, `|`, `~`, `^`, `<<`, and `>>` [here](https://code.tutsplus.com/articles/understanding-bitwise-operators--active-11301). These operators can be used in Python to perform bitwise operations.
 
-https://www.youtube.com/watch?v=qq64FrA2UXQ
+{% embed url="https://www.youtube.com/watch?v=qq64FrA2UXQ" %}
+
+{% embed url="https://www.youtube.com/watch?v=mesu75PTDC8" %}
+
+{% embed url="https://www.youtube.com/watch?v=NLKQEOgBAnw" %}
 
 ## Use Case: Hamming Codes
 
@@ -44,3 +48,9 @@ Hamming codes have a Hamming distance of 3: The algorithm can detect up to three
 4. [https://leetcode.com/problems/power-of-two/](https://leetcode.com/problems/power-of-two/)
 5. [https://leetcode.com/problems/reverse-bits/](https://leetcode.com/problems/reverse-bits/)
 6. [https://leetcode.com/problems/power-of-four/](https://leetcode.com/problems/power-of-four/)
+
+## Further Reading
+
+Two's complement
+
+{% embed url="https://www.youtube.com/watch?v=4qH4unVtJkE" %}
