@@ -1,2 +1,2 @@
-# 1.ICE.CSS - In Class CSS Exercises
+# CSS.ICE: In-Class Exercises
 

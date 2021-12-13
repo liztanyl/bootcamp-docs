@@ -16,11 +16,11 @@ Access to data given the crucial behavior of a hash table / Python dictionary / 
 
 ```javascript
 var obj = {
-    "age":12,
-    height:25
+  age: 12,
+  height: 25,
 };
 // access a value
-console.log(obj["height"]);
+console.log(obj['height']);
 ```
 
 ```python
@@ -47,7 +47,7 @@ In DSA problems, we don't need to implement a hash map class. _**We are normally
 
 ### Tallying Frequencies:
 
-Example card frequencies from module [0.4: JS Object as Tally](../../../0-0-language-and-tooling/0.4-js-object-as-tally.md):
+Example card frequencies from module [0.4: JS Object as Tally](../../../0-language-and-tooling/0.4-js-object-as-tally.md):
 
 ```javascript
 // Create shuffled deck
@@ -101,7 +101,7 @@ def get_winner(votes):
     if person not in tally:
       tally[person] = 1
     tally[person] += 1
-  
+
   # Return the person with max votes as the winner
   max_votes = max(tally.values())
   for person, vote_count in tally.items():
@@ -131,7 +131,7 @@ def get_low_stock(ls_of_fruits, threshold):
       tally[fruit] = 1
     else:
       tally[fruit] += 1
-  
+
   # Compile elements in tally that have a count below a threshold
   result = []
   for fruit, count in tally.items():
