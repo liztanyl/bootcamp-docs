@@ -1,103 +1,115 @@
 # CSS.1: Basic CSS
 
-## Introduction
+## Intro To CSS 
 
-We use CSS to style web pages. We will first learn how to apply styles to to HTML elements for basic formatting such as changing colours and sizes. We will later learn about CSS for layout.
+In the beginning was html and only html.  But programmers wanted to add styling to their web pages to help distinguish themselves from others on the web.  Initially, the answer was 'you're screwed'.  But in October 1994, Håkon Wium Lie introduced Cascading Style Sheets to the world. Today it is better known as CSS.
 
-## What is CSS
+CSS is a declarative language. It doesn't tell the browser what to do but rather describes the rules that the browser then uses to render the page. CSS became popular because it was predictable and forgiving in its syntax.  It was also easy to learn.  
+The concept of cascading styles is unique to CSS.  To cascade means that styles can inherit and overwrite styles through its hierarchy called specificity.  More on that in section 2. This concept also allowed for many style sheets to be applied to one page.  That is what made CSS so popular.   
 
-Built on top of HTML to add more visual control and complexity, CSS specifies _styles_ on an HTML element or set of elements. The CSS code specifies visual properties unrelated to the written content on an HTML page. In practice there are 2 uses for CSS: element styling and layout.
+As a declarative language, CSS uses selectors and declarations to apply styling rules to HTML pages.  The syntax for CSS starts with a selector which tells the browser the rules for styling  the selected elements. Then a code block is created using open and closing curly braces.  Inside the code block declarations or rules are created.  A declaration is made up of a property name followed by a colon and then the value of the property followed by a semi-colon.  You can have as many declaration statements as needed. It is the standard to put each declaration on its own line in code. The semi-colon tells the browser that the end of the line is reached so be sure to add it at the end of every declaration. 
 
-### **Element Styling**
-
-CSS helps us change visual properties of HTML elements, such as fonts, background images, or rounded corners on buttons. Together with JS DOM manipulation, we can use CSS to implement visual logic within an application, such as hiding or showing cards and flipping elements 90 degrees.
-
-### **Layout**
-
-CSS can help us divide our UI into visual sections. This is one of the most tricky aspects of CSS, because CSS was not originally intended for layout design. CSS content in RA's Bootcamp will focus on implementing UI layouts.
-
-## DevTools
-
-A significant amount of CSS development happens in Chrome's DevTools. The Elements tab in DevTools is our primary tool to fine-tune and debug CSS.
-
-### Styles Pane in Elements Tab
-
-![](../.gitbook/assets/dt-css-main.jpg)
-
-We saw how to inspect an element in [Module 1.1.1: Basic HTML](../1-frontend-basics/1.1-html/1.1.1-basic-html.md). When we select an HTML element in DevTools the CSS styles applied to that element appear in the Styles pane.
-
-### Element / Style Inspection
-
-![](../.gitbook/assets/dt-css-hover.jpg)
-
-Hovering over an HTML element in the HTML pane shows us style information like pixel dimensions of the element. The Styles pane shows us CSS precedence of styles on the element (higher precedence on top), and the CSS file name and line number where each style rule came from. In the above example, we see the styles for the `announce` class, the `h1` style from our CSS file, then the default `h1` browser (user agent typically refers to the user's browser) styles in decreasing order of precedence.
-
-### Toggle Style
-
-![](../.gitbook/assets/dt-css-check.jpg)
-
-A checkbox will appear when we mouse over any style rule in the Styles pane. This toggles that style rule on and off.
-
-### Edit CSS
-
-![](../.gitbook/assets/dt-css-add.jpg)
-
-We can edit CSS in the Styles pane for any HTML element to test styles on the current page. This is helpful for fine-tuning and debugging our CSS. Once we have found a set of styles that works, we can then write those styles in our CSS files in VSCode for more permanent storage. Changes we make to CSS in our browsers do not persist across page loads.
-
-## Exercise Tips / Cheatsheet
-
-### Don't Write Placeholder Text
-
-Install the [Lorem Ipsum plugin for VSCode](https://marketplace.visualstudio.com/items?itemName=Tyriar.lorem-ipsum) to quickly get placeholder text.
-
-### Get Placeholder Images for CSS
-
-Use [Lorem Picsum](https://picsum.photos) to get placeholder images.
-
-### Use Readily-Available Icons
-
-[Fontawesome](https://fontawesome.com) makes it easy to put icons on a page using HTML elements and CSS. Read full Fontawesome documentation [here](https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use).
-
-#### CSS styles link
+###Sample Syntax
 
 ```css
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+selector{
+	property: value;
+}
 ```
 
-#### Usage:
+There are three places where CSS styling can occur: 
 
-```css
-<i class="fa fa-camera"></i>
+
+1. in-line 
+2. internal
+3. external. 
+
+### In-Line Styling
+
+**In-line styling** is written inside the HTML opening tag as an attribute-value pair. Like this:
+
+```html
+
+<p style=“color: red;”> This text would be red </p>
+
+
 ```
 
-{% hint style="info" %}
-Fontawesome docs may give examples where the icon base classes must change- `fas` might need to be changed to `fa` if the icon doesn't appear.
-{% endhint %}
 
-### Consider Using Google Fonts
+If more than one style declaration is applied:
 
-Google's font collection is a relatively standard font collection of readable fonts. See their catalogue of fonts [here](https://fonts.google.com) and an exercise on how to use Google fonts [here](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/import-a-google-font).
+```html
 
-### Use Viewport Tag for Mobile Views (Important!)
+<p style=“color: red; font-weight: bold;”> This text is red and bold</p>
 
-{% hint style="warning" %}
-Many students miss this, causing CSS layout issues in mobile views. Please add this to websites we want to work on mobile.
-{% endhint %}
 
-For mobile first layouts we need to add a scaling `meta` tag in our `head` tag. This is to develop for mobile on desktop without squinting. Chrome DevTools assumes we have this scaling tag when debugging mobile layouts. Read more about the `viewport` tag [here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport\_meta\_tag)
-
-```markup
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 ```
 
-## Exercises
+### Internal Styling
 
-We will complete the 44 exercises in [Free Code Camp's Basic CSS module](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/).
+**Internal styling** is placed inside the head tag of the page and is wrapped inside the style tag. In this example, the selector of p is chosen to style all the paragraph tags on the page.
 
-### Part 1 (Exercises 1-22)
+```html
+<html>
+   <head>
+      <title> Page Title </title>
+ 		  <style>
+			  p{			
+	  			 color: white;
+			   }
+		  </style>
+	</head>
+	<body>
+		<p> This text is white </p>
+	</body>
+</html>
+```
 
-Complete Free Code Camp's Basic CSS Exercises 1-22. Start from [Change the Color of Text](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/change-the-color-of-text) and end at [Use Clockwise Notation to Specify the Margin of an Element](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/use-clockwise-notation-to-specify-the-margin-of-an-element).
+### External Styling
+	
+**External styling** links a css stylesheet to the HTML page.  This is done by adding a link tag in the head of the HTML file.
 
-### Part 2 (Exercises 23-36, Skip Last 8 Exercises)
+```html
 
-Complete Free Code Camp's Basic CSS Exercises 23-36. Start from [Use Attribute Selectors to Style Elements](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/use-attribute-selectors-to-style-elements) and end at [Use RGB to Mix Colors](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/use-rgb-to-mix-colors). Skip last 8 exercises (i.e. 37-44) because they are not particularly relevant.
+<link src=“style.css” rel=“type/stylesheets” />
+
+
+```
+
+The stylesheet would contain the same css coding that would be put in the head directly.
+
+**External Styling is the standard and should always be used.**  The other two ways should seldom if ever be used.   
+
+
+##CSS Examples
+In these examples, we will be using internal styling as it makes it easier for teaching purposes.  However, in the coding world, all css should be externally linked to the html page. 
+
+Remember that every browser has a CSS engine and that engine has default declarations for HTML elements. So to change the look of an h2 tag requires that a declaration block be made to apply new rules to the h2 tags in the file. Let's start with the following file.
+
+```html
+<html>
+   <head>
+      <title> Page Title </title>
+  	</head>
+	<body>
+		<h2> Styling H2 tags </h2>
+	</body>
+
+```
+Copy and paste the above code snipet and save the file as index.html.  Then open the file in a browser and notice how the text looks.
+
+Next insert the following code just after the title tag and just above the closing head tag.
+
+```html
+	<style>
+		h2 {
+			background-color: blue;
+			color: white;
+		}
+	</style>
+```
+
+This code targets all h2 tags in the file and makes the background-color blue and the color of the text white.
+
+Refresh your browser and you should see that the h2 has a blue background-color and white text.
+
