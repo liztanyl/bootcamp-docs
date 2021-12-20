@@ -81,7 +81,7 @@ The stylesheet would contain the same css coding that would be put in the head d
 **External Styling is the standard and should always be used.**  The other two ways should seldom if ever be used.   
 
 
-##CSS Examples
+##CSS Example 
 In these examples, we will be using internal styling as it makes it easier for teaching purposes.  However, in the coding world, all css should be externally linked to the html page. 
 
 Remember that every browser has a CSS engine and that engine has default declarations for HTML elements. So to change the look of an h2 tag requires that a declaration block be made to apply new rules to the h2 tags in the file. Let's start with the following file.
@@ -112,4 +112,31 @@ Next insert the following code just after the title tag and just above the closi
 This code targets all h2 tags in the file and makes the background-color blue and the color of the text white.
 
 Refresh your browser and you should see that the h2 has a blue background-color and white text.
+
+##Selector Combinations
+
+So far we have been looking at a single selector and applying declarations for that element.  Below is a table that shows how to use different selector combinations and the elements they target.
+
+| Selector Type | Example | Explanation |
+|:---: | :---: | --- |
+| single  | p | Targets all p tags |
+| multiple | p , h1, h3 | Targets p, h1 and h3 tags |
+| descendant | div p | Targets p tags that are descendants of a div |
+| child | div > p | Targets p tags that are immediate children of a div |
+| adjacent sibling | h2 + p | Targets p tag that is immediately adjacent to an h2 tag |
+| class | .class_name | Targets all elements with the class of class_name|
+|id | #id_name | Targets the one element with the id of id_name| 
+| universal | * | Targets all elements |
+  
+
+
+
+
+##CSS In-Class Exercises
+
+Now download the following folder css\_exercises 
+And then open the day\_1 folder inside the css\_exercises directory.
+Let's link the html file to the css file by adding the following line just after the meta tag inside the head tag:
+
+`<link src="styles.css" rel="type/stylesheets" />`
 
